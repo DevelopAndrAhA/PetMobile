@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="mb_animation">1000</integer>
+    <integer name="original_svg_width">1000</integer>
+    <integer name="original_svg_height">1000</integer>
+    <integer name="stroke_drawing_duration">1000</integer>
+    <integer name="fill_duration">1000</integer>
+    <integer name="fill_percentage">100</integer>
+</resources>

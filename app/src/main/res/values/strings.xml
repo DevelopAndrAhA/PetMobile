@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">ПЕТИЦИЯ | ЛЮСТРАЦИЯ (Войти)</string>
+
+    <string name="title_activity_fullscreen"></string>
+    <string name="dummy_button">Войти</string>
+    <string name="title_activity_login">ПЕТИЦИЯ | ЛЮСТРАЦИЯ (Войти)</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Придумайте НИК для входа</string>
+    <string name="action_sign_in">Войти</string>
+    <string name="error_nik">Придумайте НИК</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+
+
+
+    <string-array name="test">
+        <item>first item</item>
+        <item>second item</item>
+    </string-array>
+</resources>
