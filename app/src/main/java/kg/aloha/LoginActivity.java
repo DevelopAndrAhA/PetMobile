@@ -95,16 +95,16 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                //attemptLogin();
+                attemptLogin();
 
-                TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+               /* TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
 
                 if (ActivityCompat.checkSelfPermission(LoginActivity.this, READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
                     Toast.makeText(LoginActivity.this,"Нужно дать разрешение для регистрации",Toast.LENGTH_LONG).show();
                     return;
                 }
                 String str = telephonyManager.getDeviceId();
-                Toast.makeText(LoginActivity.this,str,Toast.LENGTH_LONG).show();
+                Toast.makeText(LoginActivity.this,str,Toast.LENGTH_LONG).show();*/
             }
         });
 

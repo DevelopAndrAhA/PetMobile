@@ -1,5 +1,7 @@
 package kg.aloha;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -7,11 +9,14 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
@@ -47,7 +52,9 @@ public class MainActivity extends AppCompatActivity
     private TabAdapter adapter;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-
+    private Tab1Fragment tab1Fragment;
+    private Tab2Fragment tab2Fragment;
+    private Tab3Fragment tab3Fragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,14 +62,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -97,23 +97,15 @@ public class MainActivity extends AppCompatActivity
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
 
-        Tab1Fragment tab1Fragment = new Tab1Fragment();
-        tab1Fragment.onCreate(savedInstanceState);
 
 
         adapter = new TabAdapter(getSupportFragmentManager());
-        adapter.addFragment(tab1Fragment, "Выборы 2020");
+        new AsyncInit(MainActivity.this).execute();
 
-
-        adapter.addFragment(new Tab2Fragment(), "Депутаты");
-        adapter.addFragment(new Tab3Fragment(), "Активисты");
-        viewPager.setAdapter(adapter);
-        tabLayout.setupWithViewPager(viewPager);
-
-
+/*
         tabLayout.getTabAt(0).setIcon(R.drawable.prezident);
         tabLayout.getTabAt(1).setIcon(R.drawable.prezident);
-        tabLayout.getTabAt(2).setIcon(R.drawable.prezident);
+        tabLayout.getTabAt(2).setIcon(R.drawable.prezident);*/
 
     }
 
@@ -204,6 +196,45 @@ public class MainActivity extends AppCompatActivity
         }
 
     }*/
+
+ class AsyncInit extends AsyncTask<Void,Void,Void>{
+     private ProgressDialog dialog;
+     Context context;
+     public AsyncInit(Context context) {
+         this.context = context;
+     }
+
+     @Override
+     protected void onPreExecute() {
+         dialog = new ProgressDialog(context);
+         dialog.setMessage("загрузка...");
+         dialog.setCancelable(false);
+         dialog.show();
+     }
+
+     @Override
+     protected Void doInBackground(Void... voids) {
+         return null;
+     }
+
+     @Override
+     protected void onPostExecute(Void aVoid) {
+         if(tab1Fragment==null || tab2Fragment==null || tab3Fragment==null){
+             tab1Fragment = new Tab1Fragment();
+             tab2Fragment = new Tab2Fragment();
+             tab3Fragment = new Tab3Fragment();
+
+             adapter.addFragment(tab1Fragment, "Выборы 2020");
+             adapter.addFragment(tab2Fragment, "Депутаты");
+             adapter.addFragment(tab3Fragment, "Активисты");
+             viewPager.setAdapter(adapter);
+             tabLayout.setupWithViewPager(viewPager);
+         }
+         if (dialog.isShowing()) {
+             dialog.dismiss();
+         }
+     }
+ }
 
     private String getRealPathFromUri(Uri contentUri){
         String result=null;

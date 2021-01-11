@@ -30,7 +30,9 @@
     <style name="aButton" parent="@android:style/Widget.Button">
         <item name="android:background">@drawable/abutton</item>
     </style>
-
+    <style name="checkButton" parent="@android:style/Widget.Button">
+        <item name="android:background">@drawable/check_button</item>
+    </style>
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

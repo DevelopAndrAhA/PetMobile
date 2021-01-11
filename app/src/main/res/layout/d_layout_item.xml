@@ -13,9 +13,9 @@
 
 
         <ImageView
-            android:id="@+id/ivFullScreenAd"
+            android:id="@+id/deImg"
             android:layout_width="match_parent"
-            android:layout_height="250dp" />
+            android:layout_height="250dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -32,7 +32,6 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/za"
                     android:layout_width="85dp"
                     android:layout_height="wrap_content"
                     android:paddingLeft="10dip"
@@ -40,7 +39,7 @@
                     android:textColor="@color/WHITE" />
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/dep_za"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -53,12 +52,43 @@
                     android:layout_height="30dp"
                     android:layout_marginRight="15dp"
                     android:padding="5dp"
-                    app:srcCompat="@drawable/check" />
+                    app:srcCompat="@drawable/za" />
             </LinearLayout>
 
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="85dp"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dip"
+                    android:text="Против"
+                    android:textColor="@color/WHITE" />
+
+                <TextView
+                    android:id="@+id/dep_protiv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="545"
+                    android:textColor="@color/WHITE" />
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="15dp"
+                    android:padding="5dp"
+                    app:srcCompat="@drawable/protiv" />
+            </LinearLayout>
+
             <TextView
-                android:id="@+id/fio"
+                android:id="@+id/depfio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
